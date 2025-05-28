@@ -1,0 +1,8 @@
+import { App } from 'aws-cdk-lib';
+import { {{ stack }} } from './{{ file }}.stack.js';
+
+const app = new App();
+
+new {{ stack }}(app, '{{ name }}');
+
+app.synth();

@@ -1,0 +1,760 @@
+{
+  "DataSetId": "dataset-prod-pArticulos",
+  "Name": "dataset-prod-pArticulos",
+  "PhysicalTableMap": {
+    "7ccce254-797a-4ab2-82e5-d18fe082073a": {
+      "RelationalTable": {
+        "DataSourceArn": "arn:aws:quicksight:us-east-1:951464950892:datasource/2f6ac039-fba9-11ef-a20b-0affdc0eaeb7",
+        "Name": "pArticulos",
+        "InputColumns": [
+          {
+            "Name": "id",
+            "Type": "INTEGER"
+          },
+          {
+            "Name": "clave",
+            "Type": "STRING"
+          },
+          {
+            "Name": "descripcion",
+            "Type": "STRING"
+          },
+          {
+            "Name": "existencia",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "costo",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ultimoCosto",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "estatus",
+            "Type": "STRING"
+          },
+          {
+            "Name": "idLinea",
+            "Type": "INTEGER"
+          },
+          {
+            "Name": "linea",
+            "Type": "STRING"
+          },
+          {
+            "Name": "conSerie",
+            "Type": "STRING"
+          },
+          {
+            "Name": "tipo",
+            "Type": "STRING"
+          },
+          {
+            "Name": "tipoJuego",
+            "Type": "STRING"
+          },
+          {
+            "Name": "idGrupo",
+            "Type": "INTEGER"
+          },
+          {
+            "Name": "grupo",
+            "Type": "STRING"
+          },
+          {
+            "Name": "unidad",
+            "Type": "STRING"
+          },
+          {
+            "Name": "unidadCompra",
+            "Type": "STRING"
+          },
+          {
+            "Name": "multiplosCompra",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ordenCompra",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "pedido",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "remision",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "articuloCuentaVenta",
+            "Type": "STRING"
+          },
+          {
+            "Name": "articuloDeptoVenta",
+            "Type": "STRING"
+          },
+          {
+            "Name": "peso",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "particularTexto2",
+            "Type": "STRING"
+          },
+          {
+            "Name": "particularTexto3",
+            "Type": "STRING"
+          },
+          {
+            "Name": "valor",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "costoUnitario",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ventau30d",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ventau90d",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "venta30daa",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "venta30dsaa",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ventaCantidadu30d",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ventaCantidadu90d",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ventaCantidad30daa",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "ventaCantidad30dsaa",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "diasInvu30d",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "diasInvu90d",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "diasInv30daa",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          },
+          {
+            "Name": "diasInv30dsaa",
+            "Type": "DECIMAL",
+            "SubType": "FLOAT"
+          }
+        ]
+      }
+    }
+  },
+  "LogicalTableMap": {
+    "3ad46d31-885f-479d-be90-3d2256bf5f01": {
+      "Alias": "pArticulos",
+      "DataTransforms": [
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "clave",
+            "NewColumnName": "Clave"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "descripcion",
+            "NewColumnName": "Articulo"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "existencia",
+            "NewColumnName": "Existencia"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "costo",
+            "NewColumnName": "Costo Promedio"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ultimoCosto",
+            "NewColumnName": "Ultimo Costo"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "estatus",
+            "NewColumnName": "Estatus"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "linea",
+            "NewColumnName": "Linea"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "conSerie",
+            "NewColumnName": "Con Serie"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "tipo",
+            "NewColumnName": "Tipo"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "tipoJuego",
+            "NewColumnName": "Juego"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "grupo",
+            "NewColumnName": "Grupo"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "unidad",
+            "NewColumnName": "U. Venta"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "unidadCompra",
+            "NewColumnName": "U. Compra"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "multiplosCompra",
+            "NewColumnName": "Multiplos Compra"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ordenCompra",
+            "NewColumnName": "Ordenes Compra"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "pedido",
+            "NewColumnName": "Pedidos"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "remision",
+            "NewColumnName": "Remisiones Pendientes"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "peso",
+            "NewColumnName": "Peso"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "valor",
+            "NewColumnName": "Valor Costo Promedio"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "costoUnitario",
+            "NewColumnName": "Costo Unitario"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ventau30d",
+            "NewColumnName": "$ U 30D"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ventau90d",
+            "NewColumnName": "$ U 90D"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "venta30daa",
+            "NewColumnName": "$ 30D AA"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "venta30dsaa",
+            "NewColumnName": "$ 30D SAA"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ventaCantidadu30d",
+            "NewColumnName": "# U 30D"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ventaCantidadu90d",
+            "NewColumnName": "# U 90D"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ventaCantidad30daa",
+            "NewColumnName": "# 30D AA"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "ventaCantidad30dsaa",
+            "NewColumnName": "# 30D SAA"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "diasInvu30d",
+            "NewColumnName": "Inv U 30D"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "diasInvu90d",
+            "NewColumnName": "Inv U 90D"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "diasInv30daa",
+            "NewColumnName": "Inv 30D AA"
+          }
+        },
+        {
+          "RenameColumnOperation": {
+            "ColumnName": "diasInv30dsaa",
+            "NewColumnName": "Inv 30D SAA"
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Con Venta",
+                "ColumnId": "ab0f4320-bec2-4f38-9f7b-892df1e80b97",
+                "Expression": "ifelse(\n    coalesce({# U 30D}, 0) <> 0 \n    OR coalesce({# U 90D}, 0) <> 0 \n    OR coalesce({# 30D AA}, 0) <> 0 \n    OR coalesce({# 30D SAA}, 0) <> 0,\n    \"Si\",\n    \"No\"\n)"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Existencia Cero",
+                "ColumnId": "cfd1c2a6-d504-4e56-8ce8-ec759058a7ba",
+                "Expression": "ifelse(\n    round(coalesce({Existencia}, 0), 2) = 0,\n    \"Si\",\n    \"No\"\n)\n"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Valor Ultimo Costo",
+                "ColumnId": "79c12bd6-baf7-4746-97e4-fef62c6430e6",
+                "Expression": "Existencia * {Ultimo Costo}"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Cantidad Items",
+                "ColumnId": "4a4aadbe-6a5d-4049-b122-688421637b15",
+                "Expression": "distinctCount({Articulo})\n"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Con Venta U 30D",
+                "ColumnId": "399cf453-d835-497b-b50e-c603b0f9ba9c",
+                "Expression": "ifelse(\n    coalesce({# U 30D}, 0) <> 0,\n    \"Si\",\n    \"No\"\n)"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Con Venta U 90D",
+                "ColumnId": "fc0636aa-6bdb-4683-a630-360e543d0bcb",
+                "Expression": "ifelse(\n    coalesce({# U 90D}, 0) <> 0,\n    \"Si\",\n    \"No\"\n)"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Desabasto U 30D",
+                "ColumnId": "99527587-908a-4c26-a6f2-2d2a9cd92564",
+                "Expression": "ifelse(\n    coalesce({# U 30D}, 0) <> 0\n    AND {Inv U 30D} < 30,\n    \"Si\",\n    \"No\"\n)"
+              }
+            ]
+          }
+        },
+        {
+          "CreateColumnsOperation": {
+            "Columns": [
+              {
+                "ColumnName": "Desabasto U 90D",
+                "ColumnId": "3dbd0e84-0d7f-4514-827e-5d5d988c5a7b",
+                "Expression": "ifelse(\n    coalesce({# U 90D}, 0) <> 0\n    AND {Inv U 90D} < 90,\n    \"Si\",\n    \"No\"\n)"
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Articulo",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "Descripcion"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Juego",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "tipoJuego"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "U. Venta",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "unidad"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "U. Compra",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "unidadCompra"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Valor Costo Promedio",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "valor"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "$ U 30D",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "ventau30d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "$ U 90D",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "ventau90d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "$ 30D AA",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "venta30daa"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "$ 30D SAA",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "venta30dsaa"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "# U 30D",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "ventaCantidadu30d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "# U 90D",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "ventaCantidadu90d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "# 30D AA",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "ventaCantidad30daa"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "# 30D SAA",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "ventaCantidad30dsaa"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Inv U 30D",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "diasInvu30d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Inv U 90D",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "diasInvu90d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Inv 30D AA",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "diasInv30daa"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TagColumnOperation": {
+            "ColumnName": "Inv 30D SAA",
+            "Tags": [
+              {
+                "ColumnDescription": {
+                  "Text": "diasInv30dsaa"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ProjectOperation": {
+            "ProjectedColumns": [
+              "id",
+              "Clave",
+              "Articulo",
+              "Existencia",
+              "Costo Promedio",
+              "Ultimo Costo",
+              "Estatus",
+              "idLinea",
+              "Linea",
+              "Con Serie",
+              "Tipo",
+              "Juego",
+              "idGrupo",
+              "Grupo",
+              "U. Venta",
+              "U. Compra",
+              "Multiplos Compra",
+              "Ordenes Compra",
+              "Pedidos",
+              "Remisiones Pendientes",
+              "Peso",
+              "particularTexto2",
+              "particularTexto3",
+              "Valor Costo Promedio",
+              "Costo Unitario",
+              "$ U 30D",
+              "$ U 90D",
+              "$ 30D AA",
+              "$ 30D SAA",
+              "# U 30D",
+              "# U 90D",
+              "# 30D AA",
+              "# 30D SAA",
+              "Inv U 30D",
+              "Inv U 90D",
+              "Inv 30D AA",
+              "Inv 30D SAA",
+              "Con Venta",
+              "Existencia Cero",
+              "Valor Ultimo Costo",
+              "Cantidad Items",
+              "Con Venta U 30D",
+              "Con Venta U 90D",
+              "Desabasto U 30D",
+              "Desabasto U 90D"
+            ]
+          }
+        }
+      ],
+      "Source": {
+        "PhysicalTableId": "7ccce254-797a-4ab2-82e5-d18fe082073a"
+      }
+    }
+  },
+  "ImportMode": "SPICE",
+  "FieldFolders": {},
+  "DataSetUsageConfiguration": {
+    "DisableUseAsDirectQuerySource": false,
+    "DisableUseAsImportedSource": false
+  },
+  "Permissions": [
+    {
+      "Actions": [
+        "quicksight:PassDataSet",
+        "quicksight:DescribeIngestion",
+        "quicksight:CreateIngestion",
+        "quicksight:UpdateDataSet",
+        "quicksight:DeleteDataSet",
+        "quicksight:DescribeDataSet",
+        "quicksight:CancelIngestion",
+        "quicksight:DescribeDataSetPermissions",
+        "quicksight:ListIngestions",
+        "quicksight:UpdateDataSetPermissions"
+      ],
+      "Principal": "arn:aws:quicksight:us-east-1:951464950892:group/default/FactorBI"
+    }
+  ]
+}
