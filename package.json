@@ -37,7 +37,7 @@
     "node": ">= 22.14.0"
   },
   "main": "lib/index.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "version": "0.0.0",
   "types": "lib/index.d.ts",
   "type": "module",

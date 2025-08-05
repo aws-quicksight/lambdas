@@ -10,6 +10,9 @@
       "pattern": "projects/quicksight-create-ingestion"
     },
     {
+      "pattern": "projects/analysis"
+    },
+    {
       "pattern": "projects/dataset"
     },
     {
