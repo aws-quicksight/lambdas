@@ -158,6 +158,25 @@ childrens.addCdkTs('@quicksight/analysis', 'analysis', {
   },
 });
 
+childrens.addCdkTs('@quicksight/dashboard', 'dashboard', {
+  awsCdkTypeScriptAppOptions: {
+    requireApproval: awscdk.ApprovalLevel.NEVER,
+    deps: [
+      'envalid',
+      '@aws-sdk/client-lambda',
+      '@aws-sdk/client-quicksight',
+      '@aws-sdk/client-s3',
+      'drizzle-orm',
+      '@quicksight/database@workspace:*',
+      '@quicksight/lambda-calls@workspace:*',
+      'uuid',
+      'luxon',
+      '@vinejs/vine',
+    ],
+    devDeps: ['@types/aws-lambda', '@types/uuid', '@types/luxon'],
+  },
+});
+
 childrens.addCdkTs('@quicksight/dataset', 'dataset', {
   awsCdkTypeScriptAppOptions: {
     requireApproval: awscdk.ApprovalLevel.NEVER,

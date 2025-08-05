@@ -13,6 +13,9 @@
       "pattern": "projects/analysis"
     },
     {
+      "pattern": "projects/dashboard"
+    },
+    {
       "pattern": "projects/dataset"
     },
     {

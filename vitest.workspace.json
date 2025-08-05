@@ -3,6 +3,7 @@
   "packages/lambda-calls",
   "projects/quicksight-create-ingestion",
   "projects/analysis",
+  "projects/dashboard",
   "projects/dataset",
   "projects/store-json-to-api-logs"
 ]
