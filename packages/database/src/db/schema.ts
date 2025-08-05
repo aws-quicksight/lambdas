@@ -1,6 +1,22 @@
 import { sql } from 'drizzle-orm';
 import { char, datetime, int, json, mysqlTable, primaryKey, timestamp, varchar } from 'drizzle-orm/mysql-core';
 
+export const awsQuickSightList = mysqlTable(
+  'awsQuickSightList',
+  {
+    id: int().autoincrement().notNull(),
+    documentId: char({ length: 36 }).notNull(),
+    assetId: varchar({ length: 255 }).notNull(),
+    name: varchar({ length: 255 }),
+    type: varchar({ length: 255 }).notNull(),
+    awsAccountId: varchar({ length: 30 }).notNull(),
+    region: varchar({ length: 30 }).notNull(),
+    timestamp: timestamp().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: timestamp(),
+  },
+  (table) => [primaryKey({ columns: [table.id] })],
+);
+
 export const awsQuickSightAssets = mysqlTable(
   'awsQuickSightAssets',
   {
