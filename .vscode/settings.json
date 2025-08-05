@@ -19,6 +19,9 @@
       "pattern": "projects/dataset"
     },
     {
+      "pattern": "projects/data-source"
+    },
+    {
       "pattern": "projects/store-json-to-api-logs"
     }
   ],

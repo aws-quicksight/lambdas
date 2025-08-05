@@ -7,4 +7,5 @@ packages:
   - projects/analysis
   - projects/dashboard
   - projects/dataset
+  - projects/data-source
   - projects/store-json-to-api-logs
