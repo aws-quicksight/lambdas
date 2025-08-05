@@ -3,11 +3,11 @@ import {
   type CreateDataSetCommandInput,
   DeleteDataSetCommand,
   DescribeDataSetCommand,
+  DescribeDataSetPermissionsCommand,
   QuickSightClient,
 } from '@aws-sdk/client-quicksight';
-import {
-  StoreJsonToBiMasterApiLogsClient,
-} from '@quicksight/lambda-calls';
+import { StoreJsonToBiMasterApiLogsClient } from '@quicksight/lambda-calls';
+import { errors } from '@vinejs/vine';
 import { type APIGatewayProxyHandler } from 'aws-lambda';
 import { DateTime } from 'luxon';
 import { v4 as uuidv4 } from 'uuid';
@@ -21,58 +21,35 @@ import jsonSetValueByPath from './actions/json_set_value_by_path.js';
 import jsonStringReplace from './actions/json_string_replace.js';
 import { getObjectFromS3, putObjectToS3 } from './actions/s3_quicksight.js';
 import { env } from './config/env.js';
+import { type DatasetSchema, datasetValidator } from './validators/dataset.js';
 
 export const handler: APIGatewayProxyHandler = async (event) => {
-  const body = (event.httpMethod ? JSON.parse(event.body ?? '{}') : event) as {
-    serviceId: string;
-    action: string;
-    dataSetId?: string;
-    create?: {
-      object: string;
-      replace_text?: { find: string; replace: string }[];
-      replace_key_value?: { path: string; value: string }[];
-    };
-  };
-
-  if (!body.action || body.action === '') {
-    return {
-      statusCode: 422,
-      body: JSON.stringify({ error: 'El campo action es obligatorio' }),
-    };
-  }
-
-  // Validamos que la acción sea una de las válidas
-  if (!['create', 'describe', 'delete'].includes(body.action)) {
-    return {
-      statusCode: 422,
-      body: JSON.stringify({ error: 'La acción debe ser create, describe o delete' }),
-    };
-  }
-
-  // Validamos basado en la acción que se esté realizando
-  if (body.action === 'create') {
-    if (!body.create?.object) {
+  const body = event.httpMethod ? JSON.parse(event.body ?? '{}') : event;
+  let payload: DatasetSchema;
+  try {
+    payload = await datasetValidator.validate(body);
+  } catch (error) {
+    if (error instanceof errors.E_VALIDATION_ERROR) {
       return {
         statusCode: 422,
-        body: JSON.stringify({ error: 'El campo create.object es obligatorio' }),
+        body: JSON.stringify(error.messages),
       };
     }
-  } else {
-    if (!body.dataSetId) {
-      return {
-        statusCode: 422,
-        body: JSON.stringify({ error: 'El campo dataSetId es obligatorio' }),
-      };
-    }
+
+    return {
+      statusCode: 422,
+      body: JSON.stringify({ error: (error as Error).message }),
+    };
   }
 
-  const { action, create, dataSetId } = body;
+  const { action, dataSetId, create } = payload;
   const actions = {
-    create: 'quicksight-create-dataset',
-    describe: 'quicksight-describe-dataset',
-    delete: 'quicksight-delete-dataset',
+    'create': 'quicksight-create-dataset',
+    'describe': 'quicksight-describe-dataset',
+    'delete': 'quicksight-delete-dataset',
+    'describe-dataset-permissions': 'quicksight-describe-dataset-permissions',
   };
-  const actionMessage = actions[action as keyof typeof actions];
+  const actionMessage = actions[action];
 
   const storeJsonToBiMasterApiLogsClient = new StoreJsonToBiMasterApiLogsClient();
   try {
@@ -127,7 +104,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
       const createCommand = new CreateDataSetCommand(jsonDataSet);
       const responseCreate = await clientQuickSight.send(createCommand);
-      await storeJsonToBiMasterApiLogsClient.store(body, responseCreate, actionMessage);
+      await storeJsonToBiMasterApiLogsClient.store(payload, responseCreate, actionMessage);
 
       let awsQuickSightAssetsId: number | null = null;
       try {
@@ -174,14 +151,14 @@ export const handler: APIGatewayProxyHandler = async (event) => {
         DataSetId: dataSetId!, // required
       });
       const responseDescribe = await clientQuickSight.send(describeCommand);
-      await storeJsonToBiMasterApiLogsClient.store(body, responseDescribe, actionMessage);
+      await storeJsonToBiMasterApiLogsClient.store(payload, responseDescribe, actionMessage);
 
       const dataset = responseDescribe.DataSet;
       if (dataset) {
         try {
           const directory = DateTime.utc().toFormat('yyyy-MM-dd');
           const isoDate = DateTime.utc().toISO();
-          const fileName = `${directory}/${dataset.Name}-${isoDate}.json`;
+          const fileName = `${directory}/${dataSetId}-${isoDate}.json`;
           await putObjectToS3(fileName, JSON.stringify(dataset), env.BACKUP_BUCKET_NAME);
         } catch (error) {
           console.error(error);
@@ -196,13 +173,43 @@ export const handler: APIGatewayProxyHandler = async (event) => {
       };
     }
 
+    if (action === 'describe-dataset-permissions') {
+      // Action describe
+      const describeCommand = new DescribeDataSetPermissionsCommand({
+        AwsAccountId: env.AWS_CUSTOM_ACCOUNT_ID, // required
+        DataSetId: dataSetId!, // required
+      });
+
+      const responseDescribePermissions = await clientQuickSight.send(describeCommand);
+      await storeJsonToBiMasterApiLogsClient.store(payload, responseDescribePermissions, actionMessage);
+
+      const permissions = responseDescribePermissions.Permissions;
+      if (permissions) {
+        try {
+          const directory = DateTime.utc().toFormat('yyyy-MM-dd');
+          const isoDate = DateTime.utc().toISO();
+          const fileName = `${directory}/${dataSetId}-permissions-${isoDate}.json`;
+          await putObjectToS3(fileName, JSON.stringify(permissions), env.BACKUP_BUCKET_NAME);
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        console.error(`No se pudo obtener el dataset permissions ${dataSetId} y no se ha guardado en el backup`);
+      }
+
+      return {
+        statusCode: 200,
+        body: JSON.stringify(responseDescribePermissions),
+      };
+    }
+
     // Action delete
     const deleteCommand = new DeleteDataSetCommand({
       AwsAccountId: env.AWS_CUSTOM_ACCOUNT_ID, // required
       DataSetId: dataSetId!, // required
     });
     const responseDelete = await clientQuickSight.send(deleteCommand);
-    await storeJsonToBiMasterApiLogsClient.store(body, responseDelete, actionMessage);
+    await storeJsonToBiMasterApiLogsClient.store(payload, responseDelete, actionMessage);
     await updateDeleteAwsQuickSightAssets(dataSetId!, env.AWS_CUSTOM_ACCOUNT_ID, env.AWS_CUSTOM_REGION);
 
     return {
@@ -218,7 +225,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
       error instanceof Error
     ) {
       const response = { errmsg: error.stack ?? error };
-      await storeJsonToBiMasterApiLogsClient.store(body, response, actionMessage);
+      await storeJsonToBiMasterApiLogsClient.store(payload, response, actionMessage);
     }
 
     return {

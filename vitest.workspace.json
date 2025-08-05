@@ -4,6 +4,5 @@
   "projects/quicksight-create-ingestion",
   "projects/analysis",
   "projects/dataset",
-  "projects/inventory",
   "projects/store-json-to-api-logs"
 ]

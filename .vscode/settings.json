@@ -16,9 +16,6 @@
       "pattern": "projects/dataset"
     },
     {
-      "pattern": "projects/inventory"
-    },
-    {
       "pattern": "projects/store-json-to-api-logs"
     }
   ],
