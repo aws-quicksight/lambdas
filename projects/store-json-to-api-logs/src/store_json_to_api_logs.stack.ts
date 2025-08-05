@@ -14,8 +14,8 @@ export class StoreJsonToApiLogsStack extends Stack {
     logsPolicy.addActions('logs:CreateLogGroup', 'logs:CreateLogStream', 'logs:PutLogEvents');
     logsPolicy.addResources('*');
 
-    new NodejsFunction(this, 'quicksightCreateIngestionFn', {
-      entry: 'src/quicksight_create_ingestion.handler.ts',
+    new NodejsFunction(this, 'storeJsonToApiLogsFn', {
+      entry: 'src/store_json_to_api_logs.handler.ts',
       runtime: Runtime.NODEJS_22_X,
       memorySize: 128,
       timeout: Duration.seconds(29),

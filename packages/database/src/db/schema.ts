@@ -1,5 +1,5 @@
 import { sql } from 'drizzle-orm';
-import { datetime, int, json, mysqlTable, primaryKey, timestamp, varchar } from 'drizzle-orm/mysql-core';
+import { char, datetime, int, json, mysqlTable, primaryKey, timestamp, varchar } from 'drizzle-orm/mysql-core';
 
 export const awsQuickSightAssets = mysqlTable(
   'awsQuickSightAssets',
