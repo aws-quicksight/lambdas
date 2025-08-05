@@ -7,5 +7,6 @@
   "projects/dataset",
   "projects/data-source",
   "projects/group",
+  "projects/user",
   "projects/store-json-to-api-logs"
 ]

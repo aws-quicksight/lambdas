@@ -25,6 +25,9 @@
       "pattern": "projects/group"
     },
     {
+      "pattern": "projects/user"
+    },
+    {
       "pattern": "projects/store-json-to-api-logs"
     }
   ],
