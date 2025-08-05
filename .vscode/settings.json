@@ -22,6 +22,9 @@
       "pattern": "projects/data-source"
     },
     {
+      "pattern": "projects/group"
+    },
+    {
       "pattern": "projects/store-json-to-api-logs"
     }
   ],

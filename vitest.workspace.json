@@ -6,5 +6,6 @@
   "projects/dashboard",
   "projects/dataset",
   "projects/data-source",
+  "projects/group",
   "projects/store-json-to-api-logs"
 ]
