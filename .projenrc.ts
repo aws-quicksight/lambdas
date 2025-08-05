@@ -123,22 +123,6 @@ childrens.addLibTs('@quicksight/lambda-calls', 'lambda-calls', {
   },
 });
 
-childrens.addCdkTs('@quicksight/quicksight-create-ingestion', 'quicksight-create-ingestion', {
-  awsCdkTypeScriptAppOptions: {
-    requireApproval: awscdk.ApprovalLevel.NEVER,
-    deps: [
-      'envalid',
-      '@aws-sdk/client-lambda',
-      'drizzle-orm',
-      'uuid',
-      '@aws-sdk/client-quicksight',
-      '@quicksight/database@workspace:*',
-      '@quicksight/lambda-calls@workspace:*',
-    ],
-    devDeps: ['@types/aws-lambda', '@types/uuid'],
-  },
-});
-
 childrens.addCdkTs('@quicksight/analysis', 'analysis', {
   awsCdkTypeScriptAppOptions: {
     requireApproval: awscdk.ApprovalLevel.NEVER,
@@ -231,6 +215,22 @@ childrens.addCdkTs('@quicksight/group', 'group', {
       '@vinejs/vine',
     ],
     devDeps: ['@types/aws-lambda', '@types/uuid', '@types/luxon'],
+  },
+});
+
+childrens.addCdkTs('@quicksight/ingestion', 'ingestion', {
+  awsCdkTypeScriptAppOptions: {
+    requireApproval: awscdk.ApprovalLevel.NEVER,
+    deps: [
+      'envalid',
+      '@aws-sdk/client-lambda',
+      'drizzle-orm',
+      'uuid',
+      '@aws-sdk/client-quicksight',
+      '@quicksight/database@workspace:*',
+      '@quicksight/lambda-calls@workspace:*',
+    ],
+    devDeps: ['@types/aws-lambda', '@types/uuid'],
   },
 });
 

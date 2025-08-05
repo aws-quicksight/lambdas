@@ -1,12 +1,12 @@
 [
   "packages/database",
   "packages/lambda-calls",
-  "projects/quicksight-create-ingestion",
   "projects/analysis",
   "projects/dashboard",
   "projects/dataset",
   "projects/data-source",
   "projects/group",
+  "projects/ingestion",
   "projects/user",
   "projects/vpc-connection",
   "projects/store-json-to-api-logs"

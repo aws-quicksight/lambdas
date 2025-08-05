@@ -7,9 +7,6 @@
       "pattern": "packages/lambda-calls"
     },
     {
-      "pattern": "projects/quicksight-create-ingestion"
-    },
-    {
       "pattern": "projects/analysis"
     },
     {
@@ -23,6 +20,9 @@
     },
     {
       "pattern": "projects/group"
+    },
+    {
+      "pattern": "projects/ingestion"
     },
     {
       "pattern": "projects/user"
