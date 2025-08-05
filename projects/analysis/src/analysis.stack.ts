@@ -31,6 +31,7 @@ export class AnalysisStack extends Stack {
       environment: {
         BUCKET_NAME: 'quicksightassets',
         BACKUP_BUCKET_NAME: 'quicksightassets-backup',
+        AWS_CUSTOM_ACCOUNT_ID: '',
         AWS_CUSTOM_KEY: '',
         AWS_CUSTOM_SECRET: '',
         AWS_CUSTOM_REGION: 'us-east-1',
