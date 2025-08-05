@@ -229,6 +229,7 @@ childrens.addCdkTs('@quicksight/ingestion', 'ingestion', {
       '@aws-sdk/client-quicksight',
       '@quicksight/database@workspace:*',
       '@quicksight/lambda-calls@workspace:*',
+      '@vinejs/vine',
     ],
     devDeps: ['@types/aws-lambda', '@types/uuid'],
   },

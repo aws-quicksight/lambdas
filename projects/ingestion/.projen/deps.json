@@ -74,6 +74,10 @@
       "type": "runtime"
     },
     {
+      "name": "@vinejs/vine",
+      "type": "runtime"
+    },
+    {
       "name": "aws-cdk-lib",
       "version": "^2.179.0",
       "type": "runtime"

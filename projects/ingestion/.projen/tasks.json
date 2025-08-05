@@ -178,13 +178,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/aws-lambda,@types/uuid,esbuild,tsx,typescript,@aws-sdk/client-lambda,@aws-sdk/client-quicksight,drizzle-orm,envalid,uuid"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/aws-lambda,@types/uuid,esbuild,tsx,typescript,@aws-sdk/client-lambda,@aws-sdk/client-quicksight,@vinejs/vine,drizzle-orm,envalid,uuid"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @nikovirtala/projen-vitest @nodecfdi/eslint-config @types/aws-lambda @types/node @types/uuid aws-cdk esbuild eslint tsx typescript vitest @vitest/coverage-v8 @aws-sdk/client-lambda @aws-sdk/client-quicksight @quicksight/database @quicksight/lambda-calls aws-cdk-lib constructs drizzle-orm envalid uuid"
+          "exec": "pnpm update @nikovirtala/projen-vitest @nodecfdi/eslint-config @types/aws-lambda @types/node @types/uuid aws-cdk esbuild eslint tsx typescript vitest @vitest/coverage-v8 @aws-sdk/client-lambda @aws-sdk/client-quicksight @quicksight/database @quicksight/lambda-calls @vinejs/vine aws-cdk-lib constructs drizzle-orm envalid uuid"
         },
         {
           "exec": "pnpm dlx projen"

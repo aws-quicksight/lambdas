@@ -528,6 +528,9 @@ importers:
       '@quicksight/lambda-calls':
         specifier: workspace:*
         version: link:../../packages/lambda-calls
+      '@vinejs/vine':
+        specifier: ^3.0.1
+        version: 3.0.1
       aws-cdk-lib:
         specifier: ^2.179.0
         version: 2.186.0(constructs@10.4.2)

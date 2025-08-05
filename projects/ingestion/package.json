@@ -42,6 +42,7 @@
     "@aws-sdk/client-quicksight": "^3.775.0",
     "@quicksight/database": "workspace:*",
     "@quicksight/lambda-calls": "workspace:*",
+    "@vinejs/vine": "^3.0.1",
     "aws-cdk-lib": "^2.179.0",
     "constructs": "^10.0.5",
     "drizzle-orm": "^0.41.0",
