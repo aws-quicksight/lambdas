@@ -3,6 +3,7 @@
 packages:
   - packages/database
   - packages/lambda-calls
+  - projects/list
   - projects/analysis
   - projects/dashboard
   - projects/dataset

@@ -7,6 +7,9 @@
       "pattern": "packages/lambda-calls"
     },
     {
+      "pattern": "projects/list"
+    },
+    {
       "pattern": "projects/analysis"
     },
     {
