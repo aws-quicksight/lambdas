@@ -28,6 +28,9 @@
       "pattern": "projects/user"
     },
     {
+      "pattern": "projects/vpc-connection"
+    },
+    {
       "pattern": "projects/store-json-to-api-logs"
     }
   ],

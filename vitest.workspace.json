@@ -8,5 +8,6 @@
   "projects/data-source",
   "projects/group",
   "projects/user",
+  "projects/vpc-connection",
   "projects/store-json-to-api-logs"
 ]
