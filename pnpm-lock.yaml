@@ -277,6 +277,85 @@ importers:
         specifier: ^3
         version: 3.0.9(@types/node@22.14.1)
 
+  projects/data-source:
+    dependencies:
+      '@aws-sdk/client-lambda':
+        specifier: ^3.775.0
+        version: 3.775.0
+      '@aws-sdk/client-quicksight':
+        specifier: ^3.775.0
+        version: 3.775.0
+      '@aws-sdk/client-s3':
+        specifier: ^3.777.0
+        version: 3.777.0
+      '@quicksight/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@quicksight/lambda-calls':
+        specifier: workspace:*
+        version: link:../../packages/lambda-calls
+      '@vinejs/vine':
+        specifier: ^3.0.1
+        version: 3.0.1
+      aws-cdk-lib:
+        specifier: ^2.179.0
+        version: 2.186.0(constructs@10.4.2)
+      constructs:
+        specifier: ^10.0.5
+        version: 10.4.2
+      drizzle-orm:
+        specifier: ^0.41.0
+        version: 0.41.0(gel@2.0.1)(mysql2@3.14.0)
+      envalid:
+        specifier: ^8.0.0
+        version: 8.0.0
+      luxon:
+        specifier: ^3.6.1
+        version: 3.6.1
+      uuid:
+        specifier: ^9.0.1
+        version: 9.0.1
+    devDependencies:
+      '@nikovirtala/projen-vitest':
+        specifier: ^2
+        version: 2.0.4(constructs@10.4.2)(projen@0.91.20(constructs@10.4.2))
+      '@nodecfdi/eslint-config':
+        specifier: ^3
+        version: 3.2.0(eslint@9.23.0)(typescript@5.8.3)(vitest@3.0.9(@types/node@22.14.1))
+      '@types/aws-lambda':
+        specifier: ^8.10.148
+        version: 8.10.148
+      '@types/luxon':
+        specifier: ^3.6.2
+        version: 3.6.2
+      '@types/node':
+        specifier: ^22
+        version: 22.14.1
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
+      '@vitest/coverage-v8':
+        specifier: ^3
+        version: 3.0.9(vitest@3.0.9(@types/node@22.14.1))
+      aws-cdk:
+        specifier: ^2
+        version: 2.1006.0
+      esbuild:
+        specifier: ^0.25.0
+        version: 0.25.1
+      eslint:
+        specifier: ^9.22
+        version: 9.23.0
+      tsx:
+        specifier: ^4.19.3
+        version: 4.19.3
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: ^3
+        version: 3.0.9(@types/node@22.14.1)
+
   projects/dataset:
     dependencies:
       '@aws-sdk/client-lambda':
